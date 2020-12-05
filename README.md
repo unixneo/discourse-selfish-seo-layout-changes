@@ -20,9 +20,9 @@ We originally made the changes to Discourse with `pups` during the container bui
 
 - Changes the powered-by link to point to our legacy site instead of Discourse (selfishly).
 
-### meta tags
+### meta description content
 
-- Strips newlines and excessive white space from meta description.
+- Strips newlines and excessive white space from meta descriptions by monkey patching the TopicsController.
 
 ## TODO
 
