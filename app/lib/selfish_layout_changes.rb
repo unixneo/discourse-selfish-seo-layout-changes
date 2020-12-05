@@ -1,5 +1,6 @@
 class SelfishSeoLayoutChanges
   def self.modify_head_layout
+    tmp_file = "/shared/tmp/head_work.tmp.txt"
     head_layout = "#{Rails.root}/app/views/layouts/_head.html.erb"
     google_site_verification = '<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />\n'
     if File.readlines(head_layout).grep(/canonical/)&.any?
