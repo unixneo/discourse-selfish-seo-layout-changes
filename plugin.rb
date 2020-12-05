@@ -17,14 +17,14 @@ after_initialize do
   SelfishSeoLayoutChanges.modify_crawler_layout
   SelfishSeoLayoutChanges.modify_application_layout
 
-  # TopicsController.instance_eval do
-  #   after_action :strip_newlines_and_more_from_meta_description
+  TopicsController.class_eval do
+    after_action :strip_newlines_and_more_from_meta_description
 
-  #   private
+    private
 
-  #   def strip_newlines_and_more_from_meta_description
-  #     @description_meta&.gsub("&amp;hellip;", "")
-  #     @description_meta&.gsub(/\s+/, " ").strip
-  #   end
-  # end
+    def strip_newlines_and_more_from_meta_description
+      @description_meta&.gsub("&amp;hellip;", "")
+      @description_meta&.gsub(/\s+/, " ").strip
+    end
+  end
 end
