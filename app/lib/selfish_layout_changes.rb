@@ -14,7 +14,7 @@ class SelfishSeoLayoutChanges
   def self.modify_crawler_layout
     tmp_file = "/shared/tmp/crawler_work.tmp.txt"
     crawler_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
-    if File.readlines(crawler_layout).grep(/www.unix.com/)&.empty?
+    if File.readlines(crawler_layout).grep(/www\.unix\.com/)&.empty?
       powered_by_link = '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>\n'
       tmp_file = "/shared/tmp/crawler_work.tmp.txt"
 
@@ -28,7 +28,7 @@ class SelfishSeoLayoutChanges
       FileUtils.mv(tmp_file, crawler_layout)
     end
 
-    if File.readlines(crawler_layout).grep(/google-site-verification/)&.empty?
+    if File.readlines(crawler_layout).grep(/google\-site\-verification/)&.empty?
       google_site_verification = '<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />\n'
       IO.write(tmp_file, google_site_verification)
       IO.foreach(crawler_layout) do |line|
@@ -39,7 +39,7 @@ class SelfishSeoLayoutChanges
   end
   def self.modify_application_layout
     application_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
-    if File.readlines(application_layout).grep(/www.unix.com/)&.empty?
+    if File.readlines(application_layout).grep(/www\.unix\.com/)&.empty?
       powered_by_link = '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>\n'
       tmp_file = "/shared/tmp/application_work.tmp.txt"
 
