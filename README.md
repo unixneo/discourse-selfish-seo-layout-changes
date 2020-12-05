@@ -1,6 +1,8 @@
 ## discourse-selfish-seo-layout-changes 
 
-This simple Discourse plugin makes some selfish changes to the Discourse layout.  We originally made the changed to Discourse with pups during the container build process but have moved this to plugin.
+This simple Discourse plugin makes a few "selfish" changes to the Discourse layout.  
+
+We originally made the changes to Discourse with `pups` during the container build process but moved this code to this plugin.
 
 ## Discourse Layout Changes
 
