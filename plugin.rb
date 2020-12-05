@@ -30,7 +30,7 @@ after_initialize do
       tmp_description = tmp_description&.gsub(/\n+/, " ")
       tmp_description = tmp_description&.gsub(/\s+/, " ")&.strip
       #@topic_view.summary = tmp_description
-      Discourse.warn(">>>>NEONEO_END>>>>> @topic_view.summary: #{tmp_description}", uri: request.env["REQUEST_URI"])
+      Discourse.warn(">>>>NEONEO_END>>>>> tmp_description: #{tmp_description}", uri: request.env["REQUEST_URI"])
     end
   end
 end
