@@ -30,7 +30,6 @@ class SelfishSeoLayoutChanges
     end
   end
 
-  # This method is not necessary; but just in case :)
   def self.modify_application_layout
     application_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
     if File.readlines(application_layout).grep(/www\.unix\.com/)&.empty?
@@ -38,7 +37,7 @@ class SelfishSeoLayoutChanges
       tmp_file = "/shared/tmp/application_work.tmp.txt"
 
       IO.foreach(application_layout) do |line|
-        if line.include? "powered-by-link"
+        if line.include? "powered_by_html"
           IO.write(tmp_file, powered_by_link, mode: "a")
         else
           IO.write(tmp_file, line, mode: "a")
