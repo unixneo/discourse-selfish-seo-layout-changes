@@ -20,9 +20,13 @@ We originally made the changes to Discourse with `pups` during the container bui
 
 - Changes the powered-by link to point to our legacy site instead of Discourse (selfishly).
 
+### meta tags
+
+- Strips newlines and excessive white space from meta description.
+
 ## TODO
 
 - Add Discourse site settings to:
-  - Turn on and off this plugin/
+  - Turn on and off this plugin.
   - Add custom google-site-verification value.
-  - Site settings to enable / disable each layout change.
+  - Site settings to enable and disable each layout change.
