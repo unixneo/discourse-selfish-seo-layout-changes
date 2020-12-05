@@ -2,7 +2,7 @@
 
 # name: discourse-selfish-seo-layout-changes
 # about: selfish plugin to remove canonical url, generator and change powered by, etc.
-# version: 0.0.299
+# version: 0.0.3
 # date: 5 December 2020
 # authors: Neo
 # url: https://github.com/unixneo/discourse-selfish-seo-layout-changes
@@ -36,13 +36,10 @@ after_initialize do
         format.html do
           @tags = SiteSetting.tagging_enabled ? @topic_view.topic.tags : []
           @breadcrumbs = helpers.categories_breadcrumb(@topic_view.topic) || []
-          @description_meta = @topic_view.topic.excerpt.present? ? @topic_view.topic.excerpt : @topic_view.summary
-          Discourse.warn(">>>>NEONEO_BEGIN>>>>>  @description_meta: #{@description_meta}", uri: request.env["REQUEST_URI"])
           @description_meta = @description_meta&.gsub("&amp;hellip;", "")
           @description_meta = @description_meta&.gsub("&hellip;", "")
           @description_meta = @description_meta&.gsub(/\n+/, " ")
           @description_meta = @description_meta&.gsub(/\s+/, " ")&.strip
-          Discourse.warn(">>>>NEONEO_END>>>>>  @description_meta: #{@description_meta}", uri: request.env["REQUEST_URI"])
           store_preloaded("topic_#{@topic_view.topic.id}", MultiJson.dump(topic_view_serializer))
           render :show
         end
