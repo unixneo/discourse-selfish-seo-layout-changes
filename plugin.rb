@@ -9,7 +9,7 @@
 
 PLUGIN_NAME = "discourse-selfish-seo-layout-changes"
 APP_ROOT = "#{Rails.root}/plugins/#{PLUGIN_NAME}/app"
-PLUGIN_LOGIC = "#{APP_ROOT}/lib/selfish_layout_changes.rb.rb"
+PLUGIN_LOGIC = "#{APP_ROOT}/lib/selfish_layout_changes.rb"
 load File.open(PLUGIN_LOGIC)
 
 after_initialize do
