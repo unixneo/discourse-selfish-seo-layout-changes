@@ -16,7 +16,7 @@ class SelfishSeoLayoutChanges
     tmp_file = "/shared/tmp/crawler_work.tmp.txt"
     crawler_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
     if File.readlines(crawler_layout).grep(/www\.unix\.com/)&.empty?
-      powered_by_link = '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
+      powered_by_link = "\s\s\s\s\s\s" + '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
       tmp_file = "/shared/tmp/crawler_work.tmp.txt"
 
       IO.foreach(crawler_layout) do |line|
@@ -34,7 +34,7 @@ class SelfishSeoLayoutChanges
   def self.modify_application_layout
     application_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
     if File.readlines(application_layout).grep(/www\.unix\.com/)&.empty?
-      powered_by_link = '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
+      powered_by_link = "\s\s\s\s\s\s" + '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
       tmp_file = "/shared/tmp/application_work.tmp.txt"
 
       IO.foreach(application_layout) do |line|
