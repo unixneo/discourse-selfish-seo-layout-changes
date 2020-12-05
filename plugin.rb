@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-# name: discourse-selfish-seo-layout-change
+# name: discourse-selfish-seo-layout-changes
 # about: selfish plugin to remove canonical url, generator and change powered by, etc.
-# version: 0.0.1
+# version: 0.0.2
 # date: 5 December 2020
 # authors: Neo
-# url: https://github.com/unixneo/discourse-selfish-seo-layout-change
+# url: https://github.com/unixneo/discourse-selfish-seo-layout-changes
 
-PLUGIN_NAME = "discourse-selfish-seo-layout-change"
+PLUGIN_NAME = "discourse-selfish-seo-layout-changes"
 APP_ROOT = "#{Rails.root}/plugins/#{PLUGIN_NAME}/app"
 PLUGIN_LOGIC = "#{APP_ROOT}/lib/selfish_layout_changes.rb.rb"
 load File.open(PLUGIN_LOGIC)
