@@ -19,7 +19,7 @@ class SelfishSeoLayoutChanges
       tmp_file = "/shared/tmp/crawler_work.tmp.txt"
 
       IO.foreach(crawler_layout) do |line|
-        if line.grep(/powered-by-link/)&.any?
+        if line.include? "powered-by-link"
           IO.write(tmp_file, powered_by_link, mode: "a")
         else
           IO.write(tmp_file, line, mode: "a")
@@ -44,7 +44,7 @@ class SelfishSeoLayoutChanges
       tmp_file = "/shared/tmp/application_work.tmp.txt"
 
       IO.foreach(application_layout) do |line|
-        if line.grep(/powered-by-link/)&.any?
+        if line.include? "powered-by-link"
           IO.write(tmp_file, powered_by_link, mode: "a")
         else
           IO.write(tmp_file, line, mode: "a")
