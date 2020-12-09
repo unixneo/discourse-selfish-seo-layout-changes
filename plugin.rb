@@ -2,7 +2,7 @@
 
 # name: discourse-selfish-seo-layout-changes
 # about: selfish plugin to remove canonical url, generator and change powered by, etc.
-# version: 0.0.37
+# version: 0.0.38
 # date: 9 December 2020
 # authors: Neo
 # url: https://github.com/unixneo/discourse-selfish-seo-layout-changes
