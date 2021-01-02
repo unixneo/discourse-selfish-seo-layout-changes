@@ -1,6 +1,10 @@
 class SelfishSeoLayoutChanges
   def self.modify_head_layout
-    tmp_file = "/shared/tmp/head_work.tmp.txt"
+    if ENV["RAILS_ENV"] == "production"
+      tmp_file = "/shared/tmp/head_work.tmp.txt"
+    else
+      tmp_file = "../tmp/head_work.tmp.txt"
+    end
     head_layout = "#{Rails.root}/app/views/layouts/_head.html.erb"
     google_site_verification = '<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />' + "\n"
     if File.readlines(head_layout).grep(/canonical/)&.any?
@@ -13,7 +17,11 @@ class SelfishSeoLayoutChanges
   end
 
   def self.modify_crawler_layout
-    tmp_file = "/shared/tmp/crawler_work.tmp.txt"
+    if ENV["RAILS_ENV"] == "production"
+      tmp_file = "/shared/tmp/crawler_work.tmp.txt"
+    else
+      tmp_file = "../tmp/crawler_work.tmp.txt"
+    end
     crawler_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
     if File.readlines(crawler_layout).grep(/www\.unix\.com/)&.empty?
       powered_by_link = "\s\s\s\s\s\s" + '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
@@ -34,7 +42,11 @@ class SelfishSeoLayoutChanges
     application_layout = "#{Rails.root}/app/views/layouts/application.html.erb"
     if File.readlines(application_layout).grep(/www\.unix\.com/)&.empty?
       powered_by_link = "\s\s\s\s\s\s" + '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
-      tmp_file = "/shared/tmp/application_work.tmp.txt"
+      if ENV["RAILS_ENV"] == "production"
+        tmp_file = "/shared/tmp/application_work.tmp.txt"
+      else
+        tmp_file = "../tmp/application_work.tmp.txt"
+      end
 
       IO.foreach(application_layout) do |line|
         if line.include? "powered_by_html"
