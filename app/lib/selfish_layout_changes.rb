@@ -3,7 +3,7 @@ class SelfishSeoLayoutChanges
     if ENV["RAILS_ENV"] == "production"
       tmp_file = "/shared/tmp/head_work.tmp.txt"
     else
-      tmp_file = "../tmp/head_work.tmp.txt"
+      tmp_file = "#{Rails.root}/head_work.tmp.txt"
     end
     head_layout = "#{Rails.root}/app/views/layouts/_head.html.erb"
     google_site_verification = '<meta name="google-site-verification" content="IRSOCxclhQ3ynQHh5zO2js5hftZ4UYTrk_iImCo5sIg" />' + "\n"
@@ -20,12 +20,16 @@ class SelfishSeoLayoutChanges
     if ENV["RAILS_ENV"] == "production"
       tmp_file = "/shared/tmp/crawler_work.tmp.txt"
     else
-      tmp_file = "../tmp/crawler_work.tmp.txt"
+      tmp_file = "#{Rails.root}/crawler_work.tmp.txt"
     end
     crawler_layout = "#{Rails.root}/app/views/layouts/crawler.html.erb"
     if File.readlines(crawler_layout).grep(/www\.unix\.com/)&.empty?
       powered_by_link = "\s\s\s\s\s\s" + '<p class="powered-by-link">Powered by <a href="https://www.unix.com/">UNIX.com</a>, best viewed with JavaScript enabled.</p>' + "\n"
-      tmp_file = "/shared/tmp/crawler_work.tmp.txt"
+      if ENV["RAILS_ENV"] == "production"
+        tmp_file = "/shared/tmp/crawler_work.tmp.txt"
+      else
+        tmp_file = "#{Rails.root}/crawler_work.tmp.txt"
+      end
 
       IO.foreach(crawler_layout) do |line|
         if line.include? "powered-by-link"
@@ -45,7 +49,7 @@ class SelfishSeoLayoutChanges
       if ENV["RAILS_ENV"] == "production"
         tmp_file = "/shared/tmp/application_work.tmp.txt"
       else
-        tmp_file = "../tmp/application_work.tmp.txt"
+        tmp_file = "#{Rails.root}/application_work.tmp.txt"
       end
 
       IO.foreach(application_layout) do |line|
