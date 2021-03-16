@@ -24,6 +24,10 @@ We originally made the changes to Discourse with `pups` during the container bui
 
 - Strips newlines and excessive white space from meta descriptions by monkey patching the TopicsController.
 
+### templates/application.hbs
+
+- Strips out the PWA code in the application
+
 ## TODO
 
 - Add Discourse site settings to:
