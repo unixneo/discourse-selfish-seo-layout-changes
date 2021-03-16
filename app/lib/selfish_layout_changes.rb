@@ -65,7 +65,7 @@ class SelfishSeoLayoutChanges
 
   def self.modify_application_hbs
     application_hbs = "#{Rails.root}/app/assets/javascripts/discourse/app/templates/application.hbs"
-    if File.readlines(application_hbs).grep(/pwa\-install\-/)&.any?
+    if File.readlines(application_hbs).grep(/pwa\-install\-banner/)&.any?
       if ENV["RAILS_ENV"] == "production"
         tmp_file = "/shared/tmp/application_hbs_work.tmp.txt"
       else
