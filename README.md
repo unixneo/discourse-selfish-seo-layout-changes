@@ -2,8 +2,6 @@
 
 This simple Discourse plugin makes a few "selfish" changes to the Discourse layout.  
 
-We originally made the changes to Discourse with `pups` during the container build process but moved this code to this plugin.
-
 ## Discourse Layout Changes
 
 ### layouts/_head.html.erb
@@ -26,7 +24,7 @@ We originally made the changes to Discourse with `pups` during the container bui
 
 ### templates/application.hbs
 
-- Strips out the PWA code in the application
+- Strips out the PWA code in the application (moved to standalone plugin)
 
 ## TODO
 
