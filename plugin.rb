@@ -5,7 +5,7 @@
 # version: 0.0.9
 # date: 18 March 2021
 # authors: Neo
-# url: https://github.com/unixneo/discourse-disable-pwa-install-request
+# url: https://github.com/unixneo/discourse-selfish-seo-layout-changes
 
 PLUGIN_NAME = "discourse-selfish-seo-layout-changes"
 require_relative "./app/lib/selfish_layout_changes"
